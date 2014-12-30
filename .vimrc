@@ -1,11 +1,5 @@
-" vim-sublime - A minimal Sublime Text -like vim experience bundle
-"               http://github.com/grigio/vim-sublime
-" Best view with a 256 color terminal and Powerline fonts
-
-set nocompatible
-filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-surround'
 Bundle 'kien/ctrlp.vim'
@@ -91,7 +85,7 @@ set completeopt=menuone,longest,preview
 " Plugins config
 "
 " CtrlP
-set wildignore+=*/.git/*,*/.hg/*,*/.svn/* 
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/pkg/*,*/tmp/*
 
 " Ultisnip
 " NOTE: <f1> otherwise it overrides <tab> forever
@@ -147,3 +141,4 @@ let g:user_emmet_leader_key='<C-n>'
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
 endif
+call vundle#end()            " required

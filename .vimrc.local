@@ -7,7 +7,7 @@ let g:lightline = {
       \ 'separator': { 'left': '⮀', 'right': '⮂' },
       \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
       \ }
-let g:go_bin_path = "/Users/jijeshm/.vim-go"
+let g:go_bin_path = "/Users/kiran/.vim-go"
 
 set nolist
 let g:indent_guides_enable_on_vim_startup=0
@@ -39,4 +39,38 @@ nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <Leader>gc :Gcommit<CR>
 nnoremap <Leader>gd :Gdiff<CR>
 
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/bower_components/*,*/node_modules/*
+" ===============Kiran's Customisations====================
+
+" Toggle paste indentation help
+set pastetoggle=<F2>
+
+" Window management <leader>-h, <leader>-k, <leader>-j, <leader>-l
+function! WinMove(key) 
+  let t:curwin = winnr()
+  exec "wincmd ".a:key
+  if (t:curwin == winnr()) "we havent moved
+    if (match(a:key,'[jk]')) "were we going up/down
+      wincmd v
+    else 
+      wincmd s
+    endif
+    exec "wincmd ".a:key
+  endif
+endfunction
+ 
+map <leader>h              :call WinMove('h')<cr>
+map <leader>k              :call WinMove('k')<cr>
+map <leader>l              :call WinMove('l')<cr>
+map <leader>j              :call WinMove('j')<cr>
+
+" Window close
+map <leader>wc :wincmd q<cr>
+
+" Window rotate 
+map <leader>wr <C-W>r
+
+" Window move using <leader>-H, <leader>-K, <leader>-J, <leader>-L 
+map <leader>H              :wincmd H<cr>
+map <leader>K              :wincmd K<cr>
+map <leader>L              :wincmd L<cr>
+map <leader>J              :wincmd J<cr>
