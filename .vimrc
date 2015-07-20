@@ -11,6 +11,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'fatih/vim-go'
 Bundle 'scrooloose/syntastic'
 Bundle 'mattn/emmet-vim'
+Bundle 'vim-scripts/VimClojure'
 
 " Color Themes
 Bundle 'flazz/vim-colorschemes'
